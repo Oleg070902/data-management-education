@@ -1,4 +1,5 @@
 ```PostgreSQL
+-- Создание таблиц
 CREATE TABLE
 	Departments (
 		Id SERIAL,
@@ -19,6 +20,7 @@ CREATE TABLE
 CREATE TABLE
 	Workers (
 		Id SERIAL,
+		PositionId INTEGER NOT NULL,
 		DateOfBirth DATE NOT NULL,
 		Gender VARCHAR(20) NOT NULL,
 		Passport VARCHAR(20) NOT NULL,
@@ -36,4 +38,17 @@ CREATE TABLE
 		DateOfMove DATE NOT NULL,
 		CONSTRAINT movement_log_Id PRIMARY KEY (Id)
 	);
+
+-- Добавление внешних ключей
+ALTER TABLE Positions
+ADD CONSTRAINT department_of_position FOREIGN KEY (DepartmentId) REFERENCES Departments (Id);
+
+ALTER TABLE Workers
+ADD CONSTRAINT position_of_worker FOREIGN KEY (PositionId) REFERENCES Positions (Id);
+
+ALTER TABLE MovementLog
+ADD CONSTRAINT worker_of_movement_log FOREIGN KEY (WorkerId) REFERENCES Workers (Id);
+
+ALTER TABLE MovementLog
+ADD CONSTRAINT next_position_of_movement_log FOREIGN KEY (NextPosition) REFERENCES Positions (Id);
 ```
