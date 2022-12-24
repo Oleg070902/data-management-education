@@ -30,7 +30,7 @@
 https://drive.google.com/file/d/12-1XkIgv3KsH4vUdFRDuny22ARyq0VSR/view?usp=sharing
 
 ## Код
-```PostgreSQL
+```SQL
 -- Создание таблиц
 CREATE TABLE
 	Departments (
