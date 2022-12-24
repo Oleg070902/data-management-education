@@ -1,4 +1,3 @@
-```PostgreSQL
 CREATE TABLE
 	Departments (
 		Id SERIAL,
@@ -36,4 +35,3 @@ CREATE TABLE
 		DateOfMove DATE NOT NULL,
 		CONSTRAINT movement_log_Id PRIMARY KEY (Id)
 	);
-```
